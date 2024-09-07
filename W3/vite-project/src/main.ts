@@ -16,7 +16,11 @@ btn.textContent = 'Click me'
 app.appendChild(btn)
 
 btn.addEventListener('click', () => {
-  console.log(txt.value)
+  let txtValue = txt.value
+  let txtValueArray = txtValue.split('')
+  for (const char of txtValueArray) {
+    console.log(char)
+  }
 })
 
 
