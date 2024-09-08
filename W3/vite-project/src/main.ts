@@ -18,8 +18,26 @@ app.appendChild(btn)
 btn.addEventListener('click', () => {
   let txtValue = txt.value
   let txtValueArray = txtValue.split('')
-  for (const char of txtValueArray) {
-    console.log(char)
+  // validate input as a identification number from ecuador
+  if (txtValueArray.length === 10) {
+    let sum = 0
+    for (let i=0; i< txtValueArray.length-1; i++) {
+      const element = parseInt( txtValueArray[i])
+      const elementNumber = i
+      
+      const currentValue=  elementNumber%2 === 0 ? element * 2 : element * 1
+      if (currentValue > 9) {
+        sum += currentValue - 9
+      }
+      else {
+        sum += currentValue
+      }
+      console.log(elementNumber, currentValue)
+    }
+    while (sum > 10) {
+      sum -= 10
+    }
+    alert (sum-10)
   }
 })
 
