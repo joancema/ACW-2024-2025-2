@@ -9,6 +9,11 @@ import {FormGroup, FormControl} from '@angular/forms';
 })
 export class AppComponent {
 
+  persona: IPersona = {
+    firstName: 'John',
+    lastName: 'Cevallos'
+  };
+
   profileForm = new FormGroup({
     firstName: new FormControl('john'),
     lastName: new FormControl('cevallos'),
@@ -23,4 +28,8 @@ export class AppComponent {
   }
 
 
+}
+interface IPersona {
+  firstName: string;
+  lastName: string;
 }
