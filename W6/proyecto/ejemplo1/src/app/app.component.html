@@ -1,3 +1,4 @@
+
 <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
   <label for="first-name">First Name: </label>
   <input id="first-name" type="text" formControlName="firstName">
@@ -6,3 +7,5 @@
   <button type="submit">Submit</button>
   <button type="button" (click)="nuevo()">Nuevo</button>
 </form>
+
+<router-outlet></router-outlet>
