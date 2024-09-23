@@ -77,6 +77,10 @@ frmvoto.pregunta.innerHTML += preguntas.map((pregunta) =>
   `<option value="${pregunta.id}">${pregunta.pregunta}</option>`
 ).join('')
 
+
+// const resultadox= ('hola como estas').split("") // ['hola', 'como', 'estas']
+// resultadox.join(" ") // 'hola como estas'
+
 frmvoto.addEventListener('submit', (e) => {
   e.preventDefault()
   console.log(e.target)
@@ -127,6 +131,18 @@ tabla.addEventListener('click', (e) => {
     tr?.remove();
   }
 })
+
+
+// <table>
+//   <tr>
+//     <td>1</td>
+//     <td>John</td>
+//     <td>
+//       <button>Editar</button>
+//       <button>Eliminar</button>
+//     </td>
+//   </tr>
+// </table>
 
 
 
