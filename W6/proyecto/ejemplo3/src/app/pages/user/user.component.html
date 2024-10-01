@@ -1,0 +1,25 @@
+<p>{{ title }}</p>
+<table border="1">
+    <tr>
+      <th>Nombre</th>
+      <th>Correo</th>
+      <th>Acciones</th>
+    </tr>
+  @for (item of users; track $index) {
+      <tr>
+        <td>{{ item.name }}</td>
+        <td>{{ item.email }}</td>
+        <td>
+          <a href="javascript:void(0)" (click)="edit(item)">Editar</a>
+          <a href="javascript:void(0)" (click)="delete(item)">Eliminar</a>
+        </td>
+      </tr>
+    }
+</table>
+<form>
+  <!-- <input type="text" [(ngModel)]="user.name" name="name" placeholder="Nombre"> -->
+  <!-- <input type="email" [(ngModel)]="user.email" name="email" placeholder="Correo"> -->
+  <input type="text"  name="name" placeholder="Nombre" [formControl]="name">
+  <input type="email"  name="email" placeholder="Correo" [formControl]="email" >
+  <button (click)="save()">Guardar</button>
+</form>
