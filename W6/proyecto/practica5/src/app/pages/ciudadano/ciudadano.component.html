@@ -1,1 +1,36 @@
-<h1>Componente nuevo</h1>
+{{ ciudadano.nombre }} {{ ciudadano.apellidos }} {{ ciudadano.edad }}
+
+<form action="">
+    <input type="text" name="nombre" [(ngModel)]="ciudadano.nombre">
+    <input type="text" name="apellidos" [(ngModel)]="ciudadano.apellidos">
+    <input type="number" name="edad" [(ngModel)]="ciudadano.edad">
+    <button type="button" (click)="nuevo()" >Nuevo</button>
+    <button type="button" (click)="guardar()" >Guardar</button>
+</form>
+
+
+<table border="1">
+  <thead>
+    <th>Nombre</th>
+    <th>Apellidos</th>
+    <th>Edad</th>
+    <th>Acciones</th>
+  </thead>
+  @for (ciudadano of ciudadanos; track ciudadano.identificacion){
+  <tr>
+    <td>
+      {{ ciudadano.nombre }}
+    </td>
+    <td>
+      {{ ciudadano.apellidos }}
+    </td>
+    <td>
+      {{ ciudadano.edad }}
+    </td>
+    <td>
+      <button type="button" (click)="editar(ciudadano)">Editar</button>
+      <button type="button" (click)="eliminar(ciudadano)">Eliminar</button>
+    </td>
+  </tr>
+  }
+</table>
