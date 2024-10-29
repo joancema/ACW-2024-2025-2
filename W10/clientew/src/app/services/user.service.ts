@@ -25,6 +25,9 @@ export class UserService {
   getDocument(id: string) {
     return this.db.get(id);   // Fetches a document by ID
   }
+  getAllDocument(){
+    return this.db.allDocs({include_docs: true});
+  }
 
   updateDocument(doc: any) {
     return this.db.put(doc);  // Updates a document

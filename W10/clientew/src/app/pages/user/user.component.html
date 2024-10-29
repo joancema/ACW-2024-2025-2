@@ -1,1 +1,27 @@
 <button (click)="sincronizar()">Sincronizar</button>
+<form>
+  <input type="text" [(ngModel)]="user._id" name="_id" placeholder="Id">
+  <input type="text" [(ngModel)]="user.content" name="content" placeholder="Content">
+  <input type="text" [(ngModel)]="user.title" name="title" placeholder="Title">
+  <button (click)="new()" >Nuevo</button>
+  <button (click)="save()">Guardar</button>
+</form>
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Title</th>
+    <th>Content</th>
+    <th>Acciones</th>
+  </tr>
+  @for (user of users; track $index){
+  <tr>
+    <td>{{user._id}}</td>
+    <td>{{user.title}}</td>
+    <td>{{user.content}}</td>
+    <td>
+      <button (click)="edit(user)">Editar</button>
+      <button (click)="delete(user)">Eliminar</button>
+  </tr>
+}
+</table>
+
