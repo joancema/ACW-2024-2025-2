@@ -1,0 +1,24 @@
+
+@for (item of characters.items; track $index) {
+  <li>
+    <!-- add archor tag to /character/id -->
+    <a [routerLink]="['/flags/', item.id]">{{ item.name }}</a>
+  </li>
+  } @empty {
+  <li>There are no items.</li>
+  }
+
+
+  <!-- draw a line  -->
+  <hr>
+
+
+@for (flag of flags; track $index) {
+  <li>{{ flag.name.common }}</li>
+  } @empty {
+  <li>There are no items.</li>
+  }
+
+
+
+
