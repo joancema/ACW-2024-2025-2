@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "restApi": {
+    "joancema": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,9 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/rest-api",
-            "aot": true,
-            "optimization": true,
+            "outputPath": "dist/joancema",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -35,9 +33,6 @@
           },
           "configurations": {
             "production": {
-              "outputPath": "dist/rest-api",
-              "optimization": true,
-              "aot": true,
               "budgets": [
                 {
                   "type": "initial",
@@ -53,7 +48,7 @@
               "outputHashing": "all"
             },
             "development": {
-              "optimization": true,
+              "optimization": false,
               "extractLicenses": false,
               "sourceMap": true
             }
@@ -64,10 +59,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "restApi:build:production"
+              "buildTarget": "joancema:build:production"
             },
             "development": {
-              "buildTarget": "restApi:build:development"
+              "buildTarget": "joancema:build:development"
             }
           },
           "defaultConfiguration": "development"

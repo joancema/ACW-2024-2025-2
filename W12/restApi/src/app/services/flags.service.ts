@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { IFlag } from '../interfaces/IFlag';
 import { Observable } from 'rxjs';
 import { ICharacter } from '../interfaces/ICharacters';
+import { ICharacterOne } from '../interfaces/ICharacter';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +22,9 @@ export class FlagsService {
   }
   getCharacters(): Observable<ICharacter> {
     return this.http.get<ICharacter>(this.urlDragonBall);
+  }
+  getCharacter(id: string): Observable<ICharacterOne> {
+    return this.http.get<ICharacterOne>(`${this.urlDragonBall}/${id}`);
   }
 
 

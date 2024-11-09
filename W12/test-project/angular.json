@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "restApi": {
+    "test-project": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,9 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/rest-api",
-            "aot": true,
-            "optimization": true,
+            "outputPath": "dist/test-project",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -35,9 +33,6 @@
           },
           "configurations": {
             "production": {
-              "outputPath": "dist/rest-api",
-              "optimization": true,
-              "aot": true,
               "budgets": [
                 {
                   "type": "initial",
@@ -50,12 +45,25 @@
                   "maximumError": "4kB"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "serviceWorker": "ngsw-config.json"
             },
             "development": {
-              "optimization": true,
+              "optimization": false,
               "extractLicenses": false,
               "sourceMap": true
+            },
+            "dev-watch": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true,
+
+
+              "outputPath": {
+                "base": "/projects/project-x-backend/wwwroot",
+                "browser": ""
+              }
+
             }
           },
           "defaultConfiguration": "production"
@@ -64,10 +72,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "restApi:build:production"
+              "buildTarget": "test-project:build:production"
             },
             "development": {
-              "buildTarget": "restApi:build:development"
+              "buildTarget": "test-project:build:development"
             }
           },
           "defaultConfiguration": "development"

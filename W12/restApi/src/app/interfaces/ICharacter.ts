@@ -1,4 +1,4 @@
-export interface ICharacter {
+export interface ICharacterOne {
   id:              number;
   name:            string;
   ki:              string;
