@@ -18,7 +18,7 @@ export class CharactersService {
   getCharacters(): Observable<ICharacters> {
     return this.http.get<ICharacters>(this.url);
   }
-  getCharacter(id: number): Observable<ICharacter> {
+  getCharacter(id: string): Observable<ICharacter> {
     return this.http.get<ICharacter>(`${this.url}/${id}`);
   }
 }
