@@ -1,0 +1,11 @@
+<h1>
+  Character ID: <small>{{ characterId() }}</small>
+</h1>
+<a routerLink="/">Regresar</a>
+
+@if (characterQuery.data() === undefined ) {
+<p>Cargando character</p>
+} @else {
+<h2>{{ characterQuery.data()?.description }}</h2>
+
+}
