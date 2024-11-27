@@ -1,1 +1,13 @@
-<p>character-detail works!</p>
+<div>
+  @for ( item of characters(); track $index )
+  {
+    <div>
+      <h1>{{ item.name }}</h1>
+      <p>{{ item.description }}</p>
+      <a [routerLink]="['/character',item.id]" class="hover:underline" >
+        {{ item.id }}
+      </a>
+    </div>
+
+  }
+</div>
