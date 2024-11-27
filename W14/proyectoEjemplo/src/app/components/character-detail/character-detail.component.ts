@@ -12,6 +12,12 @@ import { RouterLink } from '@angular/router';
 })
 export class CharacterDetailComponent {
   characters = input.required<Item[]>();
-  // characterService= inject(CharacterService);
+  characterService= inject(CharacterService);
+
+
+  prefetchData(number:number){
+    this.characterService.prefetchCharacter(number.toString());
+  }
+
 
 }
