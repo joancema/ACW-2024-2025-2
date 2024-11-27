@@ -1,15 +1,30 @@
 import { Component, inject } from '@angular/core';
-import { CharactersService } from '../../services/characters.service';
-import { CharacterDetailComponent } from '../../components/character-detail/character-detail.component';
+import { ActivatedRoute, RouterLink } from '@angular/router';
+import { CharacterService } from '../../services/character.service';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { map,tap } from 'rxjs';
 
 @Component({
   selector: 'app-character',
   standalone: true,
-  imports: [  ],
+  imports: [ RouterLink  ],
   templateUrl: './character.component.html',
   styleUrl: './character.component.css'
 })
 export default class CharacterComponent {
+  route = inject(ActivatedRoute);
+  characterService= inject(CharacterService);
+
+  characterId = toSignal<string>(
+    this.route.paramMap.pipe(
+      map((params) => params.get('id') ?? '' ),
+      tap((id) => this.characterService.setCharacterId(id)  )
+    )
+  );
+
+    characterQuery  = this.characterService.charactersQuery;
+
+
 
 
 

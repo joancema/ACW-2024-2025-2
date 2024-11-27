@@ -10,6 +10,11 @@ export class CharacterService {
   private characterId = signal<string| null>(null);
 
 
+  setCharacterId(characterId: string){
+    this.characterId.set(characterId);
+  }
+
+
   charactersQuery = injectQuery(()=>({
     queryKey: ['characters', this.characterId]  ,
     queryFn: () => getCharacter( this.characterId()!),
