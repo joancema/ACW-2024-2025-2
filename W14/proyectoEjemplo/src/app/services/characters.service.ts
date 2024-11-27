@@ -1,9 +1,16 @@
 import { Injectable } from '@angular/core';
+import { injectQuery } from '@tanstack/angular-query-experimental';
+import { getCharacters } from '../actions/getCharacters';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CharactersService {
 
-  constructor() { }
+
+  charactersQuery = injectQuery(()=>({
+     queryKey: ['characters'],
+     queryFn: () => getCharacters()
+  }))
+
 }
