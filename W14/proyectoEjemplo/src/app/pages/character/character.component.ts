@@ -5,17 +5,12 @@ import { CharacterDetailComponent } from '../../components/character-detail/char
 @Component({
   selector: 'app-character',
   standalone: true,
-  imports: [ CharacterDetailComponent ],
+  imports: [  ],
   templateUrl: './character.component.html',
   styleUrl: './character.component.css'
 })
 export default class CharacterComponent {
 
-  charactersService =  inject(CharactersService);
-
-  get characters() {
-    return this.charactersService.charactersQuery;
-  }
 
 
 }
